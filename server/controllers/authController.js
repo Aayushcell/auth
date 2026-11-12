@@ -12,7 +12,7 @@ export const register = async (req, res) =>{
         return res.json({success: false, message: 'Missing Details'});
     }
 
-    try {
+    try {  
 
         const existingUser = await userModel.findOne({email});
         if(existingUser){
@@ -161,7 +161,7 @@ export const sendVerifyOtp = async(req, res)=>{
 export const verifyEmail = async (req, res) =>{
 
     const {userId, otp} = req.body;
-    
+
     if(!userId || !otp){
         return res.json({success: false, message: "Missing Details"});
     }
